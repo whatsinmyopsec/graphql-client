@@ -1,29 +1,40 @@
 <template>
-  <v-app dark>
-    <v-layout align-center justify-center>
-      <v-flex xs4 sm8 md4 text-xs-center>
-        <v-card>
-          <v-form>
-            <v-text-field
-              v-model="query"
-              label="query"
-              ref="textinput"
-              class="query-input"
-              @input="$v.query.$touch()"
-            ></v-text-field>
-            <v-btn @click="submit">submit</v-btn>
-          </v-form>
-        </v-card>
-      </v-flex>
-    </v-layout>
+  <v-app max-height="200" dark>
+    <v-flex xs12>
+      <v-layout align-center justify-center raw wrap>
+        <v-flex xs12 sm6 md4 lg5>
+          <v-card dark class=" elevation-12">
+            <v-form class="px-3">
+              <v-textarea v-model="Query" label="Query"></v-textarea>
+            </v-form>
+            <v-card-actions>
+              <v-spacer></v-spacer>
+              <v-btn
+                class="success mx-0 mt-3"
+                @click="() => getQuery(Query)"
+                justify-center
+                >submit</v-btn
+              >
+            </v-card-actions>
+          </v-card>
+          <ul>
+            <li v-for="item in results" :key="item.data.getAllDownloads.id">
+              {{ item.data.GetAllDownloads }}
+            </li>
+          </ul>
+        </v-flex>
+      </v-layout>
+    </v-flex>
   </v-app>
 </template>
 <script>
 import WebFontLoader from "webfontloader";
-//import queryservice from "@/services/queryservice";
+import queryservice from "@/services/queryservice";
+
 export default {
   data: () => ({
-    query: "",
+    Query: "",
+    results: [],
   }),
   mounted() {
     WebFontLoader.load({
@@ -34,17 +45,18 @@ export default {
     });
   },
   methods: {
-    // getQuery: function(Query) {
-    //   queryservice
-    //     .fetchQuery(Query)
-    //     .then((response) => {
-    //       this.query = data.response;
-    //     })
-    //     .catch((error) => {
-    //       this.errors.push(error);
-    //       console.log(error);
-    //     });
-    // },
+    async getQuery(Query) {
+      await queryservice
+        .fetchQuery(Query)
+        .then(() => {
+          this.Query;
+          this.results;
+          console.log(this.results);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    },
   },
 };
 </script>
