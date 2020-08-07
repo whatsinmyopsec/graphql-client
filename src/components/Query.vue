@@ -18,8 +18,8 @@
             </v-card-actions>
           </v-card>
           <ul>
-            <li v-for="item in results" :key="item.data.getAllDownloads.id">
-              {{ item.data.GetAllDownloads }}
+            <li>
+              {{ results.data }}
             </li>
           </ul>
         </v-flex>
@@ -48,9 +48,8 @@ export default {
     async getQuery(Query) {
       await queryservice
         .fetchQuery(Query)
-        .then(() => {
-          this.Query;
-          this.results;
+        .then((Response) => {
+          this.results = JSON.parse(JSON.stringify(Response.data));
           console.log(this.results);
         })
         .catch((error) => {

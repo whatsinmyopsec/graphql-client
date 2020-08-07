@@ -44,7 +44,12 @@ export default {
         {
           title: "All Malware results",
           query:
-            "{getAllMalwareResults(count:10){id total positives scan_date resource scans{Bkav TotalDefence MicroWorld_eScan CMC McAfee Malwarebytes Zillya SUPERAntiSpyware K7AntiVirus K7GW Baidu Symantec Avast ClamAV Kaspersky BitDefender ViRobot Rising Sophos Comodo DrWeb VIPRE TrendMicro FireEye Emsisoft Ikarus Cyren Jiangmin Avira Fortinet Kingsoft Arcabit AegisLab ZoneAlarm Microsoft ALYac MAX VBA32 Zoner Tencent Yandex TACHYON GData AVG Panda MicroWorld_eScan CAT_QuickHeal F_Prot ESET_NOD32 TrendMicro_HouseCall NANO_Antivurus Ad_Aware F_Secure McAfee_GQ_Edition Antiy_AVL Avast_Mobile AhnLab_v3 Qihoo_360{detected version result update}}}}",
+            "{getAllMalwareResults(count:10){id total positives scan_date resource scans{Qihoo_360{detected version result update}}}}",
+        },
+        {
+          title: "All Malware scanners",
+          query:
+            "Bkav TotalDefence MicroWorld_eScan CMC McAfee Malwarebytes Zillya SUPERAntiSpyware K7AntiVirus K7GW Baidu Symantec Avast ClamAV Kaspersky BitDefender ViRobot Rising Sophos Comodo DrWeb VIPRE TrendMicro FireEye Emsisoft Ikarus Cyren Jiangmin Avira Fortinet Kingsoft Arcabit AegisLab ZoneAlarm Microsoft ALYac MAX VBA32 Zoner Tencent Yandex TACHYON GData AVG Panda MicroWorld_eScan CAT_QuickHeal F_Prot ESET_NOD32 TrendMicro_HouseCall NANO_Antivurus Ad_Aware F_Secure McAfee_GQ_Edition Antiy_AVL Avast_Mobile AhnLab_v3 Qihoo_360",
         },
         {
           title: "Malware by ID",
