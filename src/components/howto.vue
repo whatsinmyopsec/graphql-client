@@ -1,30 +1,28 @@
 <template>
-  <v-app dark>
-    <v-layout class="mt-3" justify-center>
-      <v-flex xs12 sm6 md4 lg5 text-xs-center>
-        <v-card max-width="800" class="elevation-12">
-          <v-card-title class="headline">Examples</v-card-title>
-          <v-container>
-            <v-row>
-              <v-col v-for="(item, i) in items" :key="i" cols="12">
-                <v-card dark elevation-12>
-                  <div class="d-flex flex-no-wrap justify-space-between">
-                    <div>
-                      <v-card-title
-                        class="headline"
-                        v-text="item.title"
-                      ></v-card-title>
-                      <v-card-subtitle v-text="item.query"></v-card-subtitle>
-                    </div>
+  <v-layout class="mt-3" justify-center>
+    <v-flex xs12 sm6 md4 lg5 text-xs-center>
+      <v-card max-width="800" class="elevation-12">
+        <v-card-title class="headline">Examples</v-card-title>
+        <v-container>
+          <v-row>
+            <v-col v-for="(item, i) in items" :key="i" cols="12">
+              <v-card dark elevation-12>
+                <div class="d-flex flex-no-wrap justify-space-between">
+                  <div>
+                    <v-card-title
+                      class="headline"
+                      v-text="item.title"
+                    ></v-card-title>
+                    <v-card-subtitle v-text="item.query"></v-card-subtitle>
                   </div>
-                </v-card>
-              </v-col>
-            </v-row>
-          </v-container>
-        </v-card>
-      </v-flex>
-    </v-layout>
-  </v-app>
+                </div>
+              </v-card>
+            </v-col>
+          </v-row>
+        </v-container>
+      </v-card>
+    </v-flex>
+  </v-layout>
 </template>
 <script>
 export default {

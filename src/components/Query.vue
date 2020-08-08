@@ -1,31 +1,27 @@
 <template>
-  <v-app max-height="200" dark>
-    <v-flex xs12>
-      <v-layout align-center justify-center raw wrap>
-        <v-flex xs12 sm6 md4 lg5>
-          <v-card dark class=" elevation-12">
-            <v-form class="px-3">
-              <v-textarea v-model="Query" label="Query"></v-textarea>
-            </v-form>
-            <v-card-actions>
-              <v-spacer></v-spacer>
-              <v-btn
-                class="success mx-0 mt-3"
-                @click="() => getQuery(Query)"
-                justify-center
-                >submit</v-btn
-              >
-            </v-card-actions>
-          </v-card>
-          <ul>
-            <li>
-              {{ results.data }}
-            </li>
-          </ul>
-        </v-flex>
-      </v-layout>
+  <v-layout class="mt-3" justify-center>
+    <v-flex xs12 sm6 md4 lg5 text-xs-center>
+      <v-card dark max-width="800" class="elevation-12">
+        <v-form class="px-3">
+          <v-textarea v-model="Query" label="Query"></v-textarea>
+        </v-form>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn
+            class="success mx-0 mt-3"
+            @click="() => getQuery(Query)"
+            justify-center
+            >submit</v-btn
+          >
+        </v-card-actions>
+      </v-card>
+      <ul>
+        <li>
+          {{ results.data }}
+        </li>
+      </ul>
     </v-flex>
-  </v-app>
+  </v-layout>
 </template>
 <script>
 import WebFontLoader from "webfontloader";
