@@ -6,7 +6,7 @@
         <v-container>
           <v-row>
             <v-col v-for="(item, i) in items" :key="i" cols="12">
-              <v-card dark elevation-12>
+              <v-card elevation-12>
                 <div class="d-flex flex-no-wrap justify-space-between">
                   <div>
                     <v-card-title

@@ -1,16 +1,13 @@
 <template>
   <v-layout class="ml-16 pl-13">
-    <v-flex xs12 sm6 md4 lg7 text-xs-center>
-      <v-card dark max-width="800" class="elevation-12">
+    <v-flex xs12 sm6 md4 lg7>
+      <v-card max-width="800" class="elevation-12">
         <v-form class="px-3">
           <v-textarea v-model="Query" label="Query"></v-textarea>
         </v-form>
         <v-card-actions>
           <v-spacer></v-spacer>
-          <v-btn
-            class="success mx-0 mt-3"
-            @click="() => getQuery(Query)"
-            justify-center
+          <v-btn class="success mx-0 mt-3" @click="() => getQuery(Query)"
             >submit</v-btn
           >
         </v-card-actions>

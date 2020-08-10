@@ -1,19 +1,29 @@
 <template>
-  <v-container fluid>
-    <v-row class="ml-3">
+  <v-container>
+    <v-row class="ml-2">
       <v-col cols="12">
         <v-row :align="start" :justify="start">
           <v-card outline>
             <v-select
-              label="createdAt"
               :items="dates"
               v-model="selected"
               placeholder="Select date to query"
             ></v-select>
             <v-card-actions>
-              <v-btn @click="() => getQuery(selected)">Search</v-btn>
+              <v-spacer></v-spacer>
+              <v-btn icon color="green" @click="() => getQuery(selected)"
+                ><v-icon>mdi-map</v-icon></v-btn
+              >
             </v-card-actions>
             <WorldMap :visitedCountries="visitedCountries"></WorldMap>
+            <v-list>
+              <v-list-item
+                v-for="(_, country) in visitedCountries"
+                :key="country"
+              >
+                {{ country }}
+              </v-list-item>
+            </v-list>
           </v-card>
         </v-row>
       </v-col>
@@ -23,7 +33,6 @@
 
 <script>
 import WorldMap from "./WorldMap";
-import Countries from "../assets/countries";
 import Dates from "../assets/dates";
 import queryservice from "@/services/queryservice";
 
@@ -33,29 +42,24 @@ export default {
   },
   data() {
     return {
-      countries: Countries,
       dates: Dates,
       visitedCountries: {},
       selected: null,
     };
   },
   methods: {
-    addToVisited(country) {
-      this.$set(this.visitedCountries, country.code, 500);
-
-      this.selected = null;
-    },
-
-    async getQuery(Date) {
-      await queryservice
+    getQuery(Date) {
+      const self = this;
+      queryservice
         .fetchQuery(`{getAllIpinfosByDate(createdAt:"${Date}"){country}}`)
         .then((Response) => {
-          this.results = JSON.parse(JSON.stringify(Response.data));
-          console.log(this.results.data.getAllIpinfosByDate);
-          this.$set(
-            this.visitedCountries,
-            this.results.data.getAllIpinfosByDate,
-            500
+          const results = JSON.parse(JSON.stringify(Response.data));
+          self.visitedCountries = results.data.getAllIpinfosByDate.reduce(
+            (memo, { country }) => {
+              memo[country] = 500;
+              return memo;
+            },
+            {}
           );
         })
         .catch((error) => {
