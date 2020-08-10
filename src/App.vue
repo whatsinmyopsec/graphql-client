@@ -1,10 +1,10 @@
 <template>
-  <v-app dark>
-    <v-app-bar app dark> </v-app-bar>
+  <v-app>
+    <v-app-bar app>Mapping the mappers </v-app-bar>
     <v-main>
       <v-row>
         <v-col md="auto"><app-Map /></v-col>
-        <v-col><app-Query /></v-col>
+        <v-col class="ml-13"><app-Query /></v-col>
       </v-row>
       <app-howto />
     </v-main>

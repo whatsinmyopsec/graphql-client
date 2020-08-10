@@ -1,6 +1,6 @@
 <template>
-  <v-layout class="mt-3" justify-center>
-    <v-flex xs12 sm6 md4 lg5 text-xs-center>
+  <v-layout class="ml-16 pl-13">
+    <v-flex xs12 sm6 md4 lg7 text-xs-center>
       <v-card dark max-width="800" class="elevation-12">
         <v-form class="px-3">
           <v-textarea v-model="Query" label="Query"></v-textarea>
@@ -46,7 +46,6 @@ export default {
         .fetchQuery(Query)
         .then((Response) => {
           this.results = JSON.parse(JSON.stringify(Response.data));
-          console.log(this.results);
         })
         .catch((error) => {
           console.log(error);

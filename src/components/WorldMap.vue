@@ -24,10 +24,10 @@ export default {
   data() {
     return {
       map: {
-        defaultCountryFillColor: "#dadada",
-        highColor: "red",
-        lowColor: "blue",
-        countryStrokeColor: "white",
+        defaultCountryFillColor: "#00000000",
+        highColor: "white",
+        lowColor: "#00000000",
+        countryStrokeColor: "#adadad",
       },
     };
   },
