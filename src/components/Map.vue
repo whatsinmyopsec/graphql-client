@@ -11,9 +11,9 @@
             ></v-select>
             <v-card-actions>
               <v-spacer></v-spacer>
-              <v-btn icon color="green" @click="() => getQuery(selected)"
-                ><v-icon>mdi-map</v-icon></v-btn
-              >
+              <v-btn icon color="green" @click="() => getQuery(selected)">
+                <v-icon>mdi-map</v-icon>
+              </v-btn>
             </v-card-actions>
             <WorldMap :visitedCountries="visitedCountries"></WorldMap>
             <v-list>
@@ -21,7 +21,7 @@
                 v-for="(_, country) in visitedCountries"
                 :key="country"
               >
-                {{ country }}
+                {{ Countries.find(({ code }) => country === code) }}
               </v-list-item>
             </v-list>
           </v-card>
@@ -34,6 +34,7 @@
 <script>
 import WorldMap from "./WorldMap";
 import Dates from "../assets/dates";
+import Countries from "../assets/countries";
 import queryservice from "@/services/queryservice";
 
 export default {
@@ -42,6 +43,7 @@ export default {
   },
   data() {
     return {
+      Countries: Countries,
       dates: Dates,
       visitedCountries: {},
       selected: null,
