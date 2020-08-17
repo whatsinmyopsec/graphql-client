@@ -89,6 +89,11 @@ export default {
           query:
             '{getIpinfoByID(id:"5f0b5395ab2b174e95f6f558"){id ip hostname city region country loc org postal timezone country_name latitude longitude createdAt}}',
         },
+        {
+          title: "Input query",
+          query:
+            "{getAllInputs(count:20){sensor eventid src_ip input session timestamp message}}",
+        },
       ],
     };
   },
